@@ -1,5 +1,5 @@
 var request = require('request');
-
+var filter = require('./filter.js');
 var url = 'https://api.github.com/repos/f2etw/jobs/issues';
 function getAllOffers() {
   return new Promise(function(resolve, reject) {
@@ -31,13 +31,15 @@ var table = new Table({
   , colWidths: [20, 40]
 });
 var data = getAllOffers().then((data)=>{
-  for(let da of data){
-    console.log(da.number)
-    console.log(da.title)
+  data = filter.run(data);
+  console.log("data:"+data);
+  for(var issue of data){
+    // console.log(da.number)
+    // console.log(da.title)
     table.push(
-      [da.number, da.title]
+      [issue.number, issue.title]
   );
-  console.log(table.toString());
   }
+  console.log(table.toString());
 });
 // table is an Array, so you can `push`, `unshift`, `splice` and friends
