@@ -1,0 +1,6 @@
+#choose labels to be shown
+filter: 
+    0: angularjs
+    1: scrum
+    2: php
+    
