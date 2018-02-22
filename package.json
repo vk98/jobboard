@@ -1,0 +1,11 @@
+{
+  "name": "job_board",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Obecto",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.14.1",
+    "inquirer": "^5.1.0"
+  }
+}
