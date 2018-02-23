@@ -6,10 +6,12 @@
   "license": "MIT",
   "dependencies": {
     "cli-table": "^0.3.1",
+    "cli-table2": "^0.2.0",
     "commander": "^2.14.1",
     "inquirer": "^5.1.0",
     "js-yaml": "^3.10.0",
     "json-query": "^2.2.2",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "tty-table": "^2.5.5"
   }
 }
