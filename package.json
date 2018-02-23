@@ -1,17 +1,20 @@
 {
   "name": "job_board",
   "version": "1.0.0",
-  "main": "index.js",
   "author": "Obecto",
   "license": "MIT",
+  "main": "./index.js",
+  "preferGlobal": "true",
+  "bin": {
+    "offers": "./offers.js",
+    "offer": "./singleOffer.js"
+  },
   "dependencies": {
     "cli-table": "^0.3.1",
-    "cli-table2": "^0.2.0",
-    "commander": "^2.14.1",
+    "has-flag": "^3.0.0",
     "inquirer": "^5.1.0",
     "js-yaml": "^3.10.0",
     "json-query": "^2.2.2",
-    "request": "^2.83.0",
-    "tty-table": "^2.5.5"
+    "request": "^2.83.0"
   }
 }
