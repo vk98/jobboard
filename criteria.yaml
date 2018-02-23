@@ -2,5 +2,17 @@
 filter: 
     - 'Angularjs'
 #    - 'Back-End'
+# group1(all):
+#     sdfsdfsdf
+#     sdfsdf
+#     sdf
 
+# group2(any):
+#     sdaffsdfsd
+#     sdfdsf
+
+# group3(any):
+#     sdfsdf
+#     sdf
+#     sdf
     
