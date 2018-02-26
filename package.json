@@ -1,13 +1,13 @@
 {
-  "name": "job_board",
-  "version": "1.0.0",
+  "name": "remotegigs",
+  "version": "1.0.7",
   "author": "Obecto",
   "license": "MIT",
   "main": "./index.js",
-  "preferGlobal": "true",
+  "preferGlobal": "false",
   "bin": {
-    "offers": "./offers.js",
-    "offer": "./singleOffer.js"
+    "remotegigs-offers": "./offers.js",
+    "remotegigs-offer": "./singleOffer.js"
   },
   "dependencies": {
     "cli-table": "^0.3.1",
@@ -16,5 +16,22 @@
     "js-yaml": "^3.10.0",
     "json-query": "^2.2.2",
     "request": "^2.83.0"
-  }
+  },
+  "description": "\"npm -g install .\"\r #To see all offers filtrated run\r \"offers\"\r #To see all offers without filter run\r \"offers --nf\"\r #To see specific offer run\r \"offer ###\" \r #where ### is the number of the offer",
+  "devDependencies": {},
+  "scripts": {
+    "test": "offers"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vk98/remotegigs.git"
+  },
+  "keywords": [
+    "remotegigs",
+    "job-board"
+  ],
+  "bugs": {
+    "url": "https://github.com/vk98/remotegigs/issues"
+  },
+  "homepage": "https://github.com/vk98/remotegigs#readme"
 }

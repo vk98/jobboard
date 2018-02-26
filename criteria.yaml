@@ -7,18 +7,15 @@
 #   Result on the cli is the combined one from the groups. You can comment with "#" any 
 #   of the groups if you do not want to use them. 
 
-# filter: 
-#     - 'Angularjs'
-#     - 'Back-End'
 
 # Group 1 filters by all of this (first AND second AND third ...)
 allOfThis:
-     - 'Angularjs'
-     - 'java'
+     - 'front-end'
+     - 'full-stack'
 
 
 # Group 2 filters additional by any of this (first OR second OR third..)
 anyOfThis:
-     -'Node'
-     -'.net'
+     - 'front-end'
+     - 'c#'
     

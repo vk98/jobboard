@@ -16,17 +16,22 @@ function find(string,issue){
 }
 function matchAll(issue){
     var doc = yaml.safeLoad(fs.readFileSync('criteria.yaml', 'utf8'));
-    var is_matching=true;
-    for(var criteria of doc.allOfThis){
-        if(!find(criteria,issue))is_matching=false;
+    var is_matching=false;
+    if(doc.allOfThis){
+        is_matching=true;
+        for(var criteria of doc.allOfThis){
+            if(!find(criteria,issue))is_matching=false;
+        }
     }
     return is_matching;
 }
 function matchAny(issue){
     var doc = yaml.safeLoad(fs.readFileSync('criteria.yaml', 'utf8'));
     var is_matching=false;
-    for(var criteria of doc.anyOfThis){
-        if(find(criteria,issue))is_matching=true;
+    if(doc.anyOfThis){
+        for(var criteria of doc.anyOfThis){
+            if(find(criteria,issue))is_matching=true;
+        }
     }
     return is_matching;
 }
@@ -111,8 +116,7 @@ function printOfferSelected(){
       table.push(
           { 'number': data['number']},
           { 'user': data['user']['login']},
-          { 'url': data['url'] },
-          { 'repository_url': data['repository_url'] },
+          { 'url': data['html_url'] },
           { 'state': data['state']},
           { 'labels': labels}
       );
