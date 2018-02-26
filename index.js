@@ -19,7 +19,7 @@ function matchAll(issue){
     var is_matching=false;
     if(doc.allOfThis){
         is_matching=true;
-        for(var criteria of doc.allOfThis){
+        for(var criteria of doc.includesAll){
             if(!find(criteria,issue))is_matching=false;
         }
     }
@@ -29,7 +29,7 @@ function matchAny(issue){
     var doc = yaml.safeLoad(fs.readFileSync(require('path').dirname(require.main.filename)+'/criteria.yaml', 'utf8'));
     var is_matching=false;
     if(doc.anyOfThis){
-        for(var criteria of doc.anyOfThis){
+        for(var criteria of doc.includesAny){
             if(find(criteria,issue))is_matching=true;
         }
     }
@@ -99,10 +99,13 @@ function printOffers(){
     console.log(table.toString());
   });
 }
-function printOfferSelected(){
+function printOfferSelected(issue_id){
   var issue = '';
-  if(process.argv[2] !== undefined){
-      issue = '/'+process.argv[2];
+  if(issue_id){
+      issue = '/'+issue_id;
+  }
+  else{
+    console.error("Offer number undefined");
   }
   var issue = getAllOffers(issue);
   issue.then((data) => {

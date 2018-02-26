@@ -1,16 +1,16 @@
 {
   "name": "remotegigs",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "author": "Obecto",
   "license": "MIT",
   "main": "./index.js",
   "preferGlobal": "false",
   "bin": {
-    "remotegigs-offers": "./offers.js",
-    "remotegigs-offer": "./singleOffer.js"
+    "remotegigs": "./offers.js"
   },
   "dependencies": {
     "cli-table": "^0.3.1",
+    "flags": "^0.1.3",
     "has-flag": "^3.0.0",
     "js-yaml": "^3.10.0",
     "json-query": "^2.2.2",
