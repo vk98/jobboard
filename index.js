@@ -15,7 +15,7 @@ function find(string,issue){
     else return false; 
 }
 function matchAll(issue){
-    var doc = yaml.safeLoad(fs.readFileSync('criteria.yaml', 'utf8'));
+    var doc = yaml.safeLoad(fs.readFileSync(require('path').dirname(require.main.filename)+'/criteria.yaml', 'utf8'));
     var is_matching=false;
     if(doc.allOfThis){
         is_matching=true;
@@ -26,7 +26,7 @@ function matchAll(issue){
     return is_matching;
 }
 function matchAny(issue){
-    var doc = yaml.safeLoad(fs.readFileSync('criteria.yaml', 'utf8'));
+    var doc = yaml.safeLoad(fs.readFileSync(require('path').dirname(require.main.filename)+'/criteria.yaml', 'utf8'));
     var is_matching=false;
     if(doc.anyOfThis){
         for(var criteria of doc.anyOfThis){

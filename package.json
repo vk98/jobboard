@@ -12,7 +12,6 @@
   "dependencies": {
     "cli-table": "^0.3.1",
     "has-flag": "^3.0.0",
-    "inquirer": "^5.1.0",
     "js-yaml": "^3.10.0",
     "json-query": "^2.2.2",
     "request": "^2.83.0"
