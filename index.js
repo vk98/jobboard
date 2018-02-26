@@ -8,36 +8,35 @@ function findInLabels(labels,string){
     return false;
 }
 function find(string,issue){
-    // console.log('here3 '+string.toLowerCase());
-    // console.log(issue.title.toLowerCase());
     if (issue.title.toLowerCase().indexOf(string.toLowerCase()) != -1 
     || findInLabels(issue.labels, string)) 
     return true; 
     
     else return false; 
 }
-function match(issue){
-    // console.log('here2'+ issue);
+function matchAll(issue){
     var doc = yaml.safeLoad(fs.readFileSync('criteria.yaml', 'utf8'));
     var is_matching=true;
-    for(var criteria of doc.filter){
-        // console.log(criteria);
+    for(var criteria of doc.allOfThis){
         if(!find(criteria,issue))is_matching=false;
     }
-
-    // console.log(doc);
+    return is_matching;
+}
+function matchAny(issue){
+    var doc = yaml.safeLoad(fs.readFileSync('criteria.yaml', 'utf8'));
+    var is_matching=false;
+    for(var criteria of doc.anyOfThis){
+        if(find(criteria,issue))is_matching=true;
+    }
     return is_matching;
 }
 function filter(offers){
     var filteredIssues=[];
     for(var issue of offers){
-        //console.log(issue.title);
-        if(match(issue)){
-            //console.log('match'+issue.title);// offers.splice(index,1);        
+        if(matchAny(issue) || matchAll(issue)){       
             filteredIssues.push(issue);
         }
     }
-    //console.log('all things here '+filteredIssues);
     return filteredIssues;
 }
 var request = require('request');
